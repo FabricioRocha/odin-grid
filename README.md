@@ -1,2 +1,2 @@
 # odin-grid
-The Odin Project's CSS grid-based "admin panel" exercise
+The Odin Project's CSS grid-based "admin dashboard" exercise
