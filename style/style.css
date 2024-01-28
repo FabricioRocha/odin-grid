@@ -1,5 +1,6 @@
 
 body {
+    box-sizing: border-box;
     background-color: rgb(221, 216, 216);
     margin: 0;
     display: grid;
@@ -20,9 +21,36 @@ body {
     background-color: whitesmoke;
     grid-row: 1;
     grid-column: 2;
+    display: grid;
+    grid-template: 1fr 2fr / 60% 40%;
+    gap: 1rem;
 }
 
 main {
-    grid-row: 2;
+    /* as a grid item: */
     grid-column: 2;
+    
+    /* as a container: */
+    display: grid;
+    grid-template-columns: 70% minmax(min-content, 30%);
+    column-gap: 12px;
+}
+
+main aside {
+    grid-column: 2;
+}
+
+#cards {
+    display: grid;
+    margin: 4px;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 6px;
+   
+}
+
+.card {
+    background-color: white;
+    border-left: 0.8ch solid orange;
+    border-radius: 4px;
+    padding: 2ch;
 }
