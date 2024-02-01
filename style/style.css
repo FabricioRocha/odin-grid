@@ -4,7 +4,6 @@
 
 html {
     font-size: 12px;
-    overflow: hidden;
     --main-color: dodgerblue;
 }
 
@@ -28,6 +27,8 @@ body {
     background-color: rgb(221, 216, 216);
     margin: 0;
     height: 100vh;
+    border-bottom: solid 3px red;
+
     display: grid;
     
     grid-template-columns: minmax(175px, 1fr) 5fr;
@@ -56,7 +57,6 @@ body {
     margin-left: 1ch;
     display: grid;
     grid-auto-rows: 2em;
-    row-gap: 
 }
 
 #sidebar>ul>li, #sidebar>h1 {
@@ -171,10 +171,14 @@ main {
     /* as a container: */
     display: grid;
     grid-template-columns: 70% minmax(min-content, 30%);
+    grid-template-rows: 100%;
     column-gap: 12px;
 }
 
-
+#projects {
+    overflow-y: auto;
+    overflow-x: hidden;
+}
 
 #cards {
     display: grid;
@@ -183,8 +187,6 @@ main {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 1rem;
     grid-auto-columns: minmax(200px, 1fr);
-    overflow-y: auto !important;
-    overflow-x: hidden;
 }
 
 .card {
@@ -215,20 +217,18 @@ main {
 
 main aside {
     grid-column: 2;
-
+    margin: 4px;
+    align-self: start;
+    
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr;
     row-gap: 1rem;
+    justify-content: start;
 }
 
-main aside>div {
-    display: block;
-    height: 100%;
-}
+
 
 .asidebox {
-    max-height: 80%;
     background-color: white;
     border-radius: 5px;
     box-shadow: 2px 4px 5px darkgray;
@@ -236,9 +236,9 @@ main aside>div {
     
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: repeat(3, minmax(5rem, 1fr));
-    grid-auto-rows: minmax(5rem, 1fr);
-    row-gap: 1rem;
+    grid-template-rows: repeat(auto-fill, minmax(1fr, 3ch));
+    row-gap: 2rem;
+    overflow: hidden;
 }
 /*
 .announce {
@@ -268,8 +268,10 @@ main aside>div {
 
 .userprj {
     display: grid;
-    grid-template: 1fr 1fr / 3rem auto;
+    grid-auto-rows: auto;
+    grid-template-columns: auto auto;
     column-gap: 1ch;
+    justify-content: start;
 }
 
 .userprj .avatar {
