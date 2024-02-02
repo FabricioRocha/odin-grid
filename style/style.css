@@ -27,8 +27,7 @@ body {
     background-color: rgb(221, 216, 216);
     margin: 0;
     height: 100vh;
-    border-bottom: solid 3px red;
-
+    
     display: grid;
     
     grid-template-columns: minmax(175px, 1fr) 5fr;
@@ -215,18 +214,21 @@ main {
     cursor: pointer;
 }
 
+
+
 main aside {
     grid-column: 2;
     margin: 4px;
     align-self: start;
+    max-height: 100%;
     
     display: grid;
     grid-template-columns: 1fr;
     row-gap: 1rem;
-    justify-content: start;
+    align-content: start;
+    grid-auto-rows: minmax(max-content, 1fr);
+    
 }
-
-
 
 .asidebox {
     background-color: white;
@@ -236,10 +238,11 @@ main aside {
     
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: repeat(auto-fill, minmax(1fr, 3ch));
-    row-gap: 2rem;
-    overflow: hidden;
+    grid-template-rows: repeat(auto-fit, minmax(0,min-content));
+    row-gap: 1rem;
+    
 }
+
 /*
 .announce {
     width: inherit;
